@@ -62,16 +62,34 @@ public class DropletCommands {
 		((Server) Spout.getEngine()).broadcastMessage(plugin.getQuestionList().next());
 	}
 
-	@Command(aliases = "listq", desc = "List submitted questions.", min = 0, max = 0)
+	@Command(aliases = "listq", desc = "List submitted questions.", min = 0, max = 1)
 	@CommandPermissions("dropletask.command.listq")
 	public void listQuestions(CommandContext args, CommandSource source) throws CommandException {
 		List<ChatArguments> questions = plugin.getQuestionList().get();
 		if (questions.size() == 0) {
 			throw new CommandException("There are no questions to answer!");
 		}
-		for (int i = 0; i < questions.size(); i++) {
+		int amount = questions.size();
+		if (args.length() > 0) {
+			int i = args.getInteger(0);
+			if (i <= amount) {
+				amount = i;
+			}
+		}
+		for (int i = 0; i < amount; i++) {
 			source.sendMessage(ChatStyle.BLUE, i + 1, ". ", questions.get(i));
 		}
+	}
+
+	@Command(aliases = "showq", usage = "<#>", desc = "Shows specified question.", min = 1, max = 1)
+	@CommandPermissions("dropletask.command.showq")
+	public void showQuestion(CommandContext args, CommandSource source) throws CommandException {
+		int i = args.getInteger(0) - 1;
+		List<ChatArguments> questions = plugin.getQuestionList().get();
+		if (i > questions.size() - 1 || i < 0) {
+			throw new CommandException("Index out of bounds. List size: " + questions.size());
+		}
+		source.sendMessage(questions.get(i));
 	}
 
 	@Command(aliases = {"deleteq", "delq"}, usage = "<#>", desc = "Delete specified question.", min = 1, max = 1)
