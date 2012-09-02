@@ -1,0 +1,6 @@
+name: DropletAsk
+version: dev-SNAPSHOT
+website: http://spout.org
+main: org.spout.droplet.ask.DropletAsk
+platform: SERVER
+reload: true
