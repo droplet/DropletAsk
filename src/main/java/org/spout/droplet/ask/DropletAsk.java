@@ -45,6 +45,7 @@ public class DropletAsk extends CommonPlugin {
 	@Override
 	public void onReload() {
 		questionList.save();
+		questionList.load();
 	}
 
 	@Override
