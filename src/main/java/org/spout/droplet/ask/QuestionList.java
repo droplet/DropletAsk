@@ -84,6 +84,10 @@ public class QuestionList {
 		questions.remove(index);
 	}
 
+	public boolean hasNext() {
+		return !questions.isEmpty();
+	}
+
 	public ChatArguments next() {
 		ChatArguments question = questions.get(0);
 		questions.remove(question);
