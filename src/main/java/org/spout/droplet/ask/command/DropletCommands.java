@@ -59,6 +59,9 @@ public class DropletCommands {
 		if (p != Platform.SERVER && p != Platform.PROXY) {
 			throw new CommandException("You may only read questions in server mode.");
 		}
+		if (!plugin.getQuestionList().hasNext()) {
+			throw new CommandException("There are no questions to answer!");
+		}
 		((Server) Spout.getEngine()).broadcastMessage(plugin.getQuestionList().next());
 	}
 
@@ -96,8 +99,11 @@ public class DropletCommands {
 	@CommandPermissions("dropletask.command.deleteq")
 	public void deleteQuestion(CommandContext args, CommandSource source) throws CommandException {
 		int i = args.getInteger(0) - 1;
-		System.out.println("Size: " + plugin.getQuestionList().get().size());
-		source.sendMessage(ChatStyle.BRIGHT_GREEN, "Removed question '", ChatStyle.BLUE, i + 1, ". ", plugin.getQuestionList().get().get(i), ChatStyle.BRIGHT_GREEN, "'");
+		List<ChatArguments> questions = plugin.getQuestionList().get();
+		if (i > questions.size() - 1 || i < 0) {
+			throw new CommandException("Index out of bounds. List size: " + questions.size());
+		}
+		source.sendMessage(ChatStyle.BRIGHT_GREEN, "Removed question '", ChatStyle.BLUE, i + 1, ". ", questions.get(i), ChatStyle.BRIGHT_GREEN, "'");
 		plugin.getQuestionList().remove(i);
 	}
 }
