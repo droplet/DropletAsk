@@ -32,8 +32,6 @@ import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
 import org.spout.api.command.annotated.SimpleInjector;
 import org.spout.api.plugin.CommonPlugin;
 
-import org.spout.droplet.ask.command.DropletCommands;
-
 public class DropletAsk extends CommonPlugin {
 	private QuestionList questionList;
 	private static DropletAsk instance;
