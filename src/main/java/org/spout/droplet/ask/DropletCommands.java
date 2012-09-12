@@ -90,7 +90,7 @@ public class DropletCommands {
 		int i = args.getInteger(0) - 1;
 		List<ChatArguments> questions = plugin.getQuestionList().get();
 		if (i > questions.size() - 1 || i < 0) {
-			throw new CommandException("Index out of bounds. List size: " + questions.size());
+			throw new CommandException("There are no questions to show! List size: " + questions.size());
 		}
 		source.sendMessage(questions.get(i));
 	}
