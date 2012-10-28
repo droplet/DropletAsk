@@ -1,6 +1,10 @@
 name: DropletAsk
-version: dev-SNAPSHOT
-website: http://spout.org
+version: ${releaseVersion} b${buildNumber}
+
+description: Questions and answers "Droplet" plugin for the Spout platform to demonstrate the usage of chat and player control.
+author: Spout LLC
+website: http://www.spout.org
+
 main: org.spout.droplet.ask.DropletAsk
 platform: SERVER
 reload: true
