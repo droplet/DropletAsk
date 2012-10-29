@@ -1,25 +1,37 @@
+DropletAsk
+==========
 Questions and answers "Droplet" plugin for the Spout platform to demonstrate the usage of chat and player control.
 
-Visit our [website][Website] or get support on our [forums][Forums].  
-Track issues and bugs on our [issue tracker][Issues].
+Like the project? Feel free to [donate] to help continue development!
 
-[![Follow us on Twitter][Twitter Logo]][Twitter][![Like us on Facebook][Facebook Logo]][Facebook][![Donate to the Spout project][Donate Logo]][Donate]
+## What is Spout?
+Spout is an open source multi-threaded Java voxel game framework and platform that opens the doors for infinite possibilities and expansion at the fingertips of gamers. Through the use of our platform, Spout and its API, developers can create "game" plugins, which use our client and server platform as a base. Players will be able to swap between games on-the-fly as they switch to a server running a different game plugin, or a set of game plugins.
+
+[![Spout][Logo]][Homepage]  
+[Homepage] | [Forums] | [Twitter] | [Facebook]
 
 ## The License
 DropletAsk and all "Droplet" plugins for the Spout platform are licensed under the [MIT License][License].
 
 Copyright (c) 2012, Spout LLC <<http://www.spout.org/>>  
-[![Spout][Author Logo]][Website]
 
 ## Getting the Source
-The latest and greatest source can be found on [GitHub].  
-Download the latest builds from [Jenkins]. [![Build Status](http://build.spout.org/job/DropletAsk/badge/icon)][Jenkins]
+The latest and greatest source can be found here on [GitHub][Source].  
+Download the latest builds from our [build server][Builds]. [![Build Status](http://build.spout.org/job/DropletAsk/badge/icon)][Builds]
 
 ## Compiling the Source
 DropletAsk uses Maven to handle its dependencies.
 
 * Install [Maven 2 or 3](http://maven.apache.org/download.html)  
 * Checkout this repo and run: `mvn clean package`
+
+## Installing the Plugin
+Simply place the latest [compiled jar][Builds] in your Spout server's plugins folder.  
+Change the `config.yml` located under `plugins/DropletAsk` as needed.
+
+## Contributing to the Project
+Track and submit issues and bugs on our [issue tracker][Issues].  
+[Share the love!][Donate] Donations help make development possible!
 
 ## Coding and Pull Request Conventions
 * Generally follow the Oracle coding standards.
@@ -35,16 +47,14 @@ DropletAsk uses Maven to handle its dependencies.
 
 **Please follow the above conventions if you want your pull request(s) accepted.**
 
-[Author Logo]: http://cdn.spout.org/img/logo/spout_327x150.png
-[License]: http://cdn.spout.org/license/mit.txt
-[Website]: http://www.spout.org
+[Logo]: http://cdn.spout.org/img/logo/spout_new.png
+[Homepage]: http://www.spout.org
 [Forums]: http://forums.spout.org
-[GitHub]: https://github.com/Droplets/DropletAsk
-[Jenkins]: http://build.spout.org/job/DropletAsk
-[Issues]: http://issues.spout.org/browse/Droplet
+[License]: http://cdn.spout.org/license/mit.txt
+[Source]: https://github.com/Droplets/DropletAsk
+[Builds]: http://build.spout.org/job/DropletAsk
+[Issues]: http://issues.spout.org/browse/droplet
+[Wiki]: http://wiki.spout.org/display/droplet
 [Twitter]: http://spout.in/twitter
-[Twitter Logo]: http://cdn.spout.org/img/button/twitter_follow_us.png
 [Facebook]: http://spout.in/facebook
-[Facebook Logo]: http://cdn.spout.org/img/button/facebook_like_us.png
 [Donate]: http://spout.in/donate
-[Donate Logo]: http://cdn.spout.org/img/button/donate_paypal_96x96.png
