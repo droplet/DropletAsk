@@ -1,10 +1,9 @@
-name: DropletAsk
-version: ${releaseVersion} b${buildNumber}
+name: ${project.name}
+version: ${project.version}-b${buildNumber}
+description: ${project.description}
+website: ${project.url}
+author: ${project.organization.name}
 
-description: Questions and answers "Droplet" plugin for the Spout platform to demonstrate the usage of chat and player control.
-author: Spout LLC
-website: http://www.spout.org
-
-main: org.spout.droplet.ask.DropletAsk
-platform: SERVER
-reload: true
+main: ${project.groupId}.${project.artifactId}.${project.name}
+platform: ${platform}
+reload: ${reload}
