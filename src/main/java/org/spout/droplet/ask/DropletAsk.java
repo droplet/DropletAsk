@@ -23,13 +23,10 @@
  */
 package org.spout.droplet.ask;
 
-import org.spout.api.command.CommandRegistrationsFactory;
-import org.spout.api.command.annotated.AnnotatedCommandRegistrationFactory;
-import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
-import org.spout.api.command.annotated.SimpleInjector;
-import org.spout.api.plugin.CommonPlugin;
+import org.spout.api.command.annotated.AnnotatedCommandExecutorFactory;
+import org.spout.api.plugin.Plugin;
 
-public class DropletAsk extends CommonPlugin {
+public class DropletAsk extends Plugin {
 	private QuestionList questionList;
 	private static DropletAsk instance;
 
@@ -49,8 +46,7 @@ public class DropletAsk extends CommonPlugin {
 		questionList = new QuestionList();
 		questionList.load();
 		// Register commands
-		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(new SimpleInjector(), new SimpleAnnotatedCommandExecutorFactory());
-		getEngine().getRootCommand().addSubCommands(this, DropletCommands.class, commandRegFactory);
+		AnnotatedCommandExecutorFactory.create(new DropletCommands());
 		getLogger().info("DropletAsk v" + getDescription().getVersion() + " enabled.");
 	}
 

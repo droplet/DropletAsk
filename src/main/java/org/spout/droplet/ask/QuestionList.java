@@ -29,15 +29,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-
-import org.spout.api.chat.ChatArguments;
 
 public class QuestionList {
 	private final DropletAsk plugin = DropletAsk.getInstance();
 	private final File file = new File(plugin.getDataFolder(), "questions.txt");
-	private final List<ChatArguments> questions = new ArrayList<ChatArguments>();
+	private final LinkedList<String> questions = new LinkedList<String>();
 
 	public void load() {
 		try {
@@ -48,7 +46,7 @@ public class QuestionList {
 			BufferedReader in = new BufferedReader(new FileReader(file.getAbsoluteFile()));
 			String line;
 			while ((line = in.readLine()) != null) {
-				questions.add(ChatArguments.fromString(line));
+				questions.add(line);
 			}
 			in.close();
 		} catch (IOException e) {
@@ -59,8 +57,8 @@ public class QuestionList {
 	public void save() {
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(file.getAbsoluteFile()));
-			for (ChatArguments question : questions) {
-				out.write(question.asString());
+			for (String question : questions) {
+				out.write(question);
 				out.newLine();
 			}
 			out.close();
@@ -69,12 +67,12 @@ public class QuestionList {
 		}
 	}
 
-	public List<ChatArguments> get() {
+	public List<String> get() {
 		return questions;
 	}
 
-	public void add(Object... question) {
-		questions.add(new ChatArguments(question));
+	public void add(String question) {
+		questions.add(question);
 	}
 
 	public void remove(int index) {
@@ -85,9 +83,7 @@ public class QuestionList {
 		return !questions.isEmpty();
 	}
 
-	public ChatArguments next() {
-		ChatArguments question = questions.get(0);
-		questions.remove(question);
-		return question;
+	public String next() {
+		return questions.poll();
 	}
 }
